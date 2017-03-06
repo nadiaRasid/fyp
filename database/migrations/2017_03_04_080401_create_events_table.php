@@ -18,10 +18,14 @@ class CreateEventsTable extends Migration
             //$table->integer('jenis_berita');
             $table->string('tajuk');
             $table->string('huraian');
+            $table->date('tarikh');
+            $table->time('masa');
             //$table->string('gambar');
             $table->string('lokasi');
-            $table->string('masa');
-            $table->date('tarikh');
+            $table->string('tempoh');
+            $table->string('kumpulan_sasaran');
+            $table->integer('max_peserta');
+            $table->string('telephone');
             $table->integer('user_id')->index()->unsigned();
             //$table->integer('category_id');
             $table->timestamps();

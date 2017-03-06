@@ -17,7 +17,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::with('user');
+        $events = Event::with('user')->paginate(5);
         return view('event.index', compact('events'));
     }
 
@@ -39,25 +39,28 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-        //'jenis_berita' => 'required',
-        'tajuk' => 'required',
-        'huraian' => 'required',
-        //'gambar' => 'required',
-        'lokasi' => 'required',
-        'masa' => 'required',
-        'tarikh' => 'required',
-
-        ]);
+        $this->validate ($request, ['tajuk' => 'required']);
+        $this->validate ($request, ['huraian' => 'required']);
+        $this->validate ($request, ['tarikh' => 'required']);
+        $this->validate ($request, ['masa' => 'required']);
+        $this->validate ($request, ['lokasi' => 'required']);
+        $this->validate ($request, ['tempoh' => 'required']);
+        $this->validate ($request, ['kumpulan_sasaran' => 'required']);
+        $this->validate ($request, ['max_peserta' => 'required']);
+        $this->validate ($request, ['telephone' => 'required']);
 
         $event = new Event;
         //$event->jenis_berita = $request->jenis_berita;
         $event->tajuk = $request->tajuk;
         $event->huraian = $request->huraian;
+        $event->tarikh = $request->tarikh;
+        $event->masa = $request->masa;
         //$event->gambar = $request->gambar;
         $event->lokasi = $request->lokasi;
-        $event->masa = $request->masa;
-        $event->tarikh = $request->tarikh;
+        $event->tempoh = $request->tempoh;
+        $event->kumpulan_sasaran = $request->kumpulan_sasaran;
+        $event->max_peserta = $request->max_peserta;
+        $event->telephone = $request->telephone;
         $event->user_id = Auth::user()->id;
         $event->save();
 
@@ -97,24 +100,29 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            //'jenis_berita' => 'required',
-            'tajuk' => 'required',
-            'huraian' => 'required',
-            //'gambar' => 'required',
-            'lokasi' => 'required',
-            'masa' => 'required',
-            'tarikh' => 'required',
-        ]);
+        $this->validate ($request, ['tajuk' => 'required']);
+        $this->validate ($request, ['huraian' => 'required']);
+        $this->validate ($request, ['tarikh' => 'required']);
+        $this->validate ($request, ['masa' => 'required']);
+        $this->validate ($request, ['lokasi' => 'required']);
+        $this->validate ($request, ['tempoh' => 'required']);
+        $this->validate ($request, ['kumpulan_sasaran' => 'required']);
+        $this->validate ($request, ['max_peserta' => 'required']);
+        $this->validate ($request, ['telephone' => 'required']);
 
-        $event = Event::findOrFail($id);
+        $event = new Event;
         //$event->jenis_berita = $request->jenis_berita;
         $event->tajuk = $request->tajuk;
         $event->huraian = $request->huraian;
+        $event->tarikh = $request->tarikh;
+        $event->masa = $request->masa;
         //$event->gambar = $request->gambar;
         $event->lokasi = $request->lokasi;
-        $event->masa = $request->masa;
-        $event->tarikh = $request->tarikh;
+        $event->tempoh = $request->tempoh;
+        $event->kumpulan_sasaran = $request->kumpulan_sasaran;
+        $event->max_peserta = $request->max_peserta;
+        $event->telephone = $request->telephone;
+        $event->user_id = Auth::user()->id;
         $event->save();
 
         return redirect()->action('EventsController@index')->withMessage('Event has been successfully updated');

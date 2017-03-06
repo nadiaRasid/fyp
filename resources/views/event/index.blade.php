@@ -15,8 +15,9 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th width="65%">Content</th>
-                <th width="15%">By</th>
+                <th width="55%">Event Title</th>
+                <th width="15%">Time</th>
+                <th width="15%">Date</th>
                 <th width="15%">Action</th>
               </tr>
             </thead>
@@ -25,19 +26,9 @@
               @forelse($events as $event)
               <tr>
                 <td >{{ $events->firstItem() + $i }}</td>
-                <td>
-                  <!-- <form method="POST" action="/event/{{ $event->id }}" style="display: inline-block;">
-                    {{ csrf_field() }}
-                    <button class="btn {{ Auth::check() && Auth::user()->alreadyliked($post) ? 'btn-success' : 'btn-default' }}" style="width: 3em">
-                      {{ $post->likes->count() }}
-                    </button>
-                  </form> --> -->
-                  &nbsp&nbsp{{ $event->tajuk }}
-                  <small class="pull-right">
-                    {{ $event->created_at->diffForHumans() }}
-                  </small>
-                </td>
-                <td>{{ $event->user->username }}</td>
+                <td> {{ $event->tajuk }} </td>
+                <td> {{ $event->masa }} </td>
+                <td>{{ $event->tarikh }}</td>
                 <td>
                   @if( $event->user_id == Auth::user()->id)
                   <a href="{{ action('EventsController@edit', $event->id) }}" class="btn btn-primary btn-sm">Edit</a>
@@ -53,7 +44,7 @@
               @endforelse
             </tbody>
           </table>
-          {{ $events->links() }}
+          <!-- {{ $events->links() }} -->
         </div>
       </div>
     </div>

@@ -39,7 +39,7 @@ class ProfilesController extends Controller
     public function index()
     {
         $user = auth()->user()->with('profile')->firstOrFail();
-        return view('profile.profile', compact('user'));
+        return view('profile.index', compact('users'));
 
         // $user = User::where('username', Auth::user()->username)->first();
         // return view('profile.profile')
@@ -64,7 +64,20 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate ($r, ['full_name' => 'required']);
+        // $this->validate ($r, ['telephone_no' => 'required']);
+        // $this->validate ($r, ['jawatan' => 'required']);
+        // $this->validate ($r, ['jabatan' => 'required']);
         //
+        // $profile = Profile::findOrFail($id);
+        // $profile->full_name = $r->full_name;
+        // $profile->telephone_no = $r->telephone_no;
+        // $profile->jawatan = $r->jawatan;
+        // $profile->jabatan = $r->jabatan;
+        // $profile->save();
+        //
+        // return redirect()->action('ProfilesController@store')->withMessage('Profile has been successfully added');
+
     }
 
     /**
@@ -88,6 +101,7 @@ class ProfilesController extends Controller
     {
         // $profile = Profile::findOrFail($id);
         // return view('profile.edit', compact('profile'));
+        $profile = Profile::findOrFail($id);
         return view('profile.edit')->with('info', Auth::user()->profile);
 
     }
@@ -101,12 +115,10 @@ class ProfilesController extends Controller
     public function update(Request $r, $id)
     {
 
-        $this->validate($r, [
-            'full_name' => 'required',
-            'telephone_no' => 'required',
-            'jawatan' => 'required',
-            'jabatan' => 'required',
-        ]);
+        $this->validate ($r, ['full_name' => 'required']);
+        $this->validate ($r, ['telephone_no' => 'required']);
+        $this->validate ($r, ['jawatan' => 'required']);
+        $this->validate ($r, ['jabatan' => 'required']);
 
         $profile = Profile::findOrFail($id);
         $profile->full_name = $r->full_name;

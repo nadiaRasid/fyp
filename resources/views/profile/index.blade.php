@@ -12,14 +12,14 @@
 
                         <div class="panel-body">
 
-                                <td>{{ $user->profile->full_name}}</td>
+                                <td >{{ $user->profile->full_name}}</td>
                                 <td >{{ $user->profile->telephone_no}}</td>
                                 <td >{{ $user->profile->jawatan}}</td>
                                 <td >{{ $user->profile->jabatan}}</td> -->
 
                               <p class="text-center">
                                     @if(Auth::id() == $user->id)
-                                          <a href="{{ route('profile.edit') }}" class="btn btn-info">Edit Profile</a>
+                                          <a href="{{ action('ProfilesController@edit', $profile->id) }}" class="btn btn-info">Edit Profile</a>
                                     @endif
                               </p>
                         </div>

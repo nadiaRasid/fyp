@@ -9,8 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['jenis_berita', 'tajuk', 'huraian', 'gambar', 'lokasi', 'masa'];
-    //
+    protected $fillable = ['tajuk', 'huraian', 'tarikh', 'masa', 'lokasi', 'tempoh', 'kumpulan_sasaran', 'max_peserta', 'telephone' ];
 
     public function user()
     {
