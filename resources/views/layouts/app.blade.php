@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
                             <li><a href="{{ url('profile') }}">Kemaskini Profil</a></li>
-                            <li><a href="{{ url('event') }}">E-Hebahan Berita</a></li>
+                            <li><a href="{{ url('event') }}">eHebahan Berita</a></li>
                             <unread></unread>
                         @endif
                     </ul>
@@ -54,8 +54,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Log Masuk</a></li>
+                            <li><a href="{{ route('register') }}">Daftar Masuk</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -63,12 +63,12 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                     <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>Profile</a></li>
+                                     <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>Profil</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Log Keluar
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -116,7 +116,7 @@
 
 
     <!-- Scripts -->
-    
+
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
       $(document).on("click", "#confirm-modal", function(e) {
