@@ -102,7 +102,7 @@ class ProfilesController extends Controller
         // $profile = Profile::findOrFail($id);
         // return view('profile.edit', compact('profile'));
         $profile = Profile::findOrFail($id);
-        return view('profile.edit')->with('info', Auth::user()->profile);
+        return view('profile.edit')->with('profile', Auth::user()->profile);
 
     }
     /**

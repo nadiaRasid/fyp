@@ -110,7 +110,7 @@ class EventsController extends Controller
         $this->validate ($request, ['max_peserta' => 'required']);
         $this->validate ($request, ['telephone' => 'required']);
 
-        $event = new Event;
+        $event = Event::findOrFail($id);
         //$event->jenis_berita = $request->jenis_berita;
         $event->tajuk = $request->tajuk;
         $event->huraian = $request->huraian;
@@ -122,7 +122,7 @@ class EventsController extends Controller
         $event->kumpulan_sasaran = $request->kumpulan_sasaran;
         $event->max_peserta = $request->max_peserta;
         $event->telephone = $request->telephone;
-        $event->user_id = Auth::user()->id;
+        // $event->user_id = Auth::user()->id;
         $event->save();
 
         return redirect()->action('EventsController@index')->withMessage('Event has been successfully updated');

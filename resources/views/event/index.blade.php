@@ -44,7 +44,7 @@
               @endforelse
             </tbody>
           </table>
-          <!-- {{ $events->links() }} -->
+          {{ $events->links() }}
         </div>
       </div>
     </div>
