@@ -17,9 +17,11 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('category_name');
             $table->integer('event_id')->unsigned();
+            $table->integer('berita_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('berita_id')->references('id')->on('beritas')->onDelete('cascade');
 
         });
     }

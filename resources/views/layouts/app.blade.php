@@ -44,8 +44,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
-                            <li><a href="{{ url('profile') }}">Kemaskini Profil</a></li>
-                            <li><a href="{{ url('event') }}">eHebahan Berita</a></li>
+                            <!-- <li><a href="{{ url('profile') }}">Kemaskini Profil</a></li> -->
+                            <li><a href="{{ url('berita') }}">eHebahan Berita</a></li>
+                            <li><a href="{{ url('event') }}">eHebahan Acara</a></li>
                             <unread></unread>
                         @endif
                     </ul>

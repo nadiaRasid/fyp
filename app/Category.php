@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Event;
+use App\Berita;
 use App\EventCategory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,11 @@ class Category extends Model
     public function event()
     {
         return $this->belongsTo(Event::class);
+    }
+
+    public function berita()
+    {
+        return $this->belongsTo(Berita::class);
     }
 
     public function event_categories()

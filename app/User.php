@@ -4,6 +4,7 @@ namespace App;
 
 use App\Profile;
 use App\Event;
+use App\Berita;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -37,6 +38,11 @@ class User extends Authenticatable
     public function event()
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function berita()
+    {
+        return $this->hasMany(Berita::class);
     }
 
 }

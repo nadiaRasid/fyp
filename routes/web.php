@@ -32,6 +32,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::patch('/event/{event}', 'EventsController@update');
     Route::delete('/event/{event}/delete', 'EventsController@destroy');
 
+    //news
+    Route::get('/berita', 'BeritasController@index');
+    Route::get('/berita/create', 'BeritasController@create');
+    Route::post('/berita', 'BeritasController@store');
+    Route::get('/berita/{berita}', 'BeritasController@show');
+    Route::get('/berita/{berita}/edit', 'BeritasController@edit');
+    Route::patch('/berita/{berita}', 'BeritasController@update');
+    Route::delete('/berita/{berita}/delete', 'BeritasController@destroy');
+
     //search
     // Route::get('/search', 'SearchController@index');
     // Route::get('/search/find', 'SearchController@find');
