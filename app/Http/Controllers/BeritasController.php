@@ -16,8 +16,14 @@ class BeritasController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::with('user')->paginate(5);
+        $beritas = Berita::with('user')->paginate(10);
         return view('berita.index', compact('beritas'));
+    }
+
+    public function papar()
+    {
+        $beritas = Berita::with('user')->paginate(10);
+        return view('berita.papar', compact('beritas'));
     }
 
     /**
@@ -65,7 +71,8 @@ class BeritasController extends Controller
      */
     public function show($id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        return view('berita.details', compact('berita'));
     }
 
     /**

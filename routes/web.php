@@ -41,6 +41,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::patch('/berita/{berita}', 'BeritasController@update');
     Route::delete('/berita/{berita}/delete', 'BeritasController@destroy');
 
+    //Home
+    Route::get('/papar', 'BeritasController@papar');
+    Route::get('/papar/{berita}', 'BeritasController@show');
+
+
     //search
     // Route::get('/search', 'SearchController@index');
     // Route::get('/search/find', 'SearchController@find');

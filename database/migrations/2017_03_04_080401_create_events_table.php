@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             //$table->integer('jenis_berita');
             $table->string('tajuk');
-            $table->string('huraian');
+            $table->text('huraian');
             $table->date('tarikh');
             $table->time('masa');
             //$table->string('gambar');
