@@ -38,7 +38,8 @@ class ProfilesController extends Controller
 
     public function index()
     {
-        $user = auth()->user()->with('profile')->firstOrFail();
+        // $user = auth()->user()->with('profile')->firstOrFail();
+        $user = User::where('username', Auth::user()->username)->first();
         return view('profile.index', compact('users'));
 
         // $user = User::where('username', Auth::user()->username)->first();

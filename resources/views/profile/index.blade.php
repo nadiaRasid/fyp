@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 @if ($user->profile)
     <h1>{{ $user->username }} <small>{{ $user->profile->full_name }}</small></h1>
     <div class="jawatan">
@@ -15,7 +15,9 @@
     </div>
 
     @if ($user->isCurrent())
-        {{ link_to_route('profile.edit', 'Edit Your Profile', $user->username) }}
+        <!-- {{ link_to_route('profile.edit', 'Edit Your Profile', $user->username) }} -->
+        <!-- <h5><a href="{{ url('acara', $event->id) }}"><strong>{{ $event->tajuk }} </strong></a></h5> -->
+        <a href="{{ action('ProfilesController@edit', $user->profile->id) }}" class="btn btn-primary">Edit details</a>
     @endif
 @else
     <p>No profile yet.</p>

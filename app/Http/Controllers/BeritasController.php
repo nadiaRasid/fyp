@@ -24,6 +24,9 @@ class BeritasController extends Controller
     {
         $beritas = Berita::with('user')->paginate(10);
         return view('berita.papar', compact('beritas'));
+
+        $beritas = Berita::where('tajuk','like','%'.Input::get('search').'%')->get();
+        return view('papar', compact('beritas'));
     }
 
     /**

@@ -64,7 +64,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Log Masuk</a></li>
+                            <li><a href="{{ route('login') }}"><i class="fa fa-user"></i>Log Masuk</a></li>
                             <li><a href="{{ route('register') }}">Daftar Masuk</a></li>
                         @else
                             <li class="dropdown">
@@ -73,7 +73,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                     <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i>Profil</a></li>
+                                     <li><a href="{{ url('profile') }}"><i class="fa fa-btn fa-user"></i>Profil</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

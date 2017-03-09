@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     //profile
     Route::get('/profile', 'ProfilesController@index');
-    Route::get('/profile/{edit}/edit', 'ProfilesController@edit');
+    Route::get('/profile/{profile}/edit', 'ProfilesController@edit');
     Route::patch('/profile/{profile}', 'ProfilesController@update');
 
     //event
