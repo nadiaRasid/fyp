@@ -45,9 +45,17 @@
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
                             <!-- <li><a href="{{ url('profile') }}">Kemaskini Profil</a></li> -->
-                            <li><a href="{{ url('papar') }}">Home</a></li>
-                            <li><a href="{{ url('berita') }}">eHebahan Berita</a></li>
-                            <li><a href="{{ url('event') }}">eHebahan Acara</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Paparan Buletin <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('papar') }}">Paparan Berita</a></li>
+                                    <li><a href="{{ url('acara') }}">Paparan Acara</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ url('berita') }}">Hebahan Berita</a></li>
+                            <li><a href="{{ url('event') }}">Hebahan Acara</a></li>
                             <unread></unread>
                         @endif
                     </ul>

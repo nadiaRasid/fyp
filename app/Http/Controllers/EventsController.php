@@ -21,6 +21,12 @@ class EventsController extends Controller
         return view('event.index', compact('events'));
     }
 
+    public function papar()
+    {
+        $events = Event::with('user')->paginate(10);
+        return view('event.papar', compact('events'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,6 +53,7 @@ class EventsController extends Controller
         $this->validate ($request, ['tempoh' => 'required']);
         $this->validate ($request, ['kumpulan_sasaran' => 'required']);
         $this->validate ($request, ['max_peserta' => 'required']);
+        // $this->validate ($request, ['penganjur' => 'required']);
         $this->validate ($request, ['telephone' => 'required']);
 
         $event = new Event;
@@ -76,7 +83,8 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        return view('event.details', compact('event'));
     }
 
     /**

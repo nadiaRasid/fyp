@@ -11,16 +11,16 @@
                 <br><br>
             </div>
             <div class="col-md-8">
-                <hr>
+
                 <h1>{{ $berita->tajuk }}</h1>
                 <p> Published at {{ $berita->created_at }}</p>
                 <p> Lokasi: {{ $berita->lokasi }}</p>
                 <br>
-                <p>  {{ $berita->huraian }}</p>
-                <form action="{{ url('') }}" method="post">
-                    <button type="submit" class="btn btn-primary">Back</button>
-                    <input type="hidden" name="berita_id" value="{{ $berita->id }}">
-                </form>
+                <p> {{ $berita->huraian }}</p>
+
+                    <div class="col-sm-offset-4 col-sm-12">
+                        <a href="{{ url('papar') }}" class="btn btn-primary">Kembali</a>
+                    </div>
             </div>
         </div>
     </div>

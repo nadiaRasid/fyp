@@ -14,12 +14,12 @@
 
                     <tbody pull-{right}>
                     <?php $i = 0 ?>
-                    @forelse($beritas as $berita)
+                    @forelse($events as $event)
                     <tr>
                         <td>
-                            <h5><a href="{{ url('papar', $berita->id) }}"><strong>{{ $berita->tajuk }} </strong></a></h5>
-                            <p> Published at {{ $berita->created_at }}</p>
-                            <p> {{ $berita->lokasi }}</p>
+                            <h5><a href="{{ url('acara', $event->id) }}"><strong>{{ $event->tajuk }} </strong></a></h5>
+                            <p> Tarikh: {{ $event->tarikh }} <br> Masa: {{ $event->masa }}</p>
+                            <p> Tempat: {{ $event->lokasi }}</p>
 
                         </td>
                     </tr>
@@ -28,7 +28,7 @@
                     @endforelse
                     </tbody>
                     </table>
-                    {{ $beritas -> links() }}
+                    {{ $events -> links() }}
                 </div>
             </div>
         </div>

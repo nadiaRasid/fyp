@@ -41,17 +41,18 @@ Route::group(['middleware' => ['auth']], function() {
     Route::patch('/berita/{berita}', 'BeritasController@update');
     Route::delete('/berita/{berita}/delete', 'BeritasController@destroy');
 
-    //Home
+    //Paparan Berita
     Route::get('/papar', 'BeritasController@papar');
     Route::get('/papar/{berita}', 'BeritasController@show');
 
+    //Paparan Acara
+    Route::get('/acara', 'EventsController@papar');
+    Route::get('/acara/{event}', 'EventsController@show');
 
     //search
     // Route::get('/search', 'SearchController@index');
     // Route::get('/search/find', 'SearchController@find');
 
-    // Route::get('profile', 'ProfilesController@profile');
-    // Route::post('profile', 'ProfilesController@update_avatar');
 });
 
 Auth::routes();

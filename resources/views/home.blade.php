@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Selamat Datang Ke eHebahan Berita @UKM!
+                    Selamat Datang Ke eBuletin UKM!
                 </div>
             </div>
         </div>
