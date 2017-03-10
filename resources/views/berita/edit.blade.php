@@ -12,7 +12,7 @@
             {{ method_field('PATCH') }}
 
             <div class="form-group{{ $errors->has('tajuk') ? ' has-error' : '' }}">
-                <label for="tajuk" class="col-md-4 control-label">Tajuk Berita</label>
+                <label for="tajuk" class="col-md-4 control-label">Tajuk Buletin </label>
 
                 <div class="col-md-6">
                     <input id="tajuk" type="text" class="form-control" name="tajuk" value="{{ $berita->tajuk }}" required autofocus>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('huraian') ? ' has-error' : '' }}">
-                <label for="huraian" class="col-md-4 control-label">Huraian Berita</label>
+                <label for="huraian" class="col-md-4 control-label">Perincian Hebahan </label>
 
                 <div class="col-md-6">
                     <textarea id="huraian" class="form-control" name="huraian" rows="6" maxlength="500" required autofocus>{{ $berita->huraian }}</textarea>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('lokasi') ? ' has-error' : '' }}">
-                <label for="lokasi" class="col-md-4 control-label">Lokasi Berita</label>
+                <label for="lokasi" class="col-md-4 control-label">Lokasi </label>
 
                 <div class="col-md-6">
                     <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{ $berita->lokasi }}" required autofocus>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('kumpulan_sasaran') ? ' has-error' : '' }}">
-                <label for="kumpulan_sasaran" class="col-md-4 control-label">Kumpulan Sasaran</label>
+                <label for="kumpulan_sasaran" class="col-md-4 control-label">Kumpulan Sasaran </label>
 
                 <div class="col-md-6">
                     <input id="kumpulan_sasaran" type="text" class="form-control" name="kumpulan_sasaran" value="{{ $berita->kumpulan_sasaran }}" required autofocus>

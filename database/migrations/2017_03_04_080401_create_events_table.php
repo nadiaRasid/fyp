@@ -15,7 +15,6 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            //$table->integer('jenis_berita');
             $table->string('tajuk');
             $table->text('huraian');
             $table->date('tarikh');
@@ -25,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->string('tempoh');
             $table->string('kumpulan_sasaran');
             $table->integer('max_peserta');
+            $table->string('penganjur');
             $table->string('telephone');
             $table->integer('user_id')->index()->unsigned();
             //$table->integer('category_id');

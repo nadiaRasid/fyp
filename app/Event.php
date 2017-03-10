@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['tajuk', 'huraian', 'tarikh', 'masa', 'lokasi', 'tempoh', 'kumpulan_sasaran', 'max_peserta', 'telephone' ];
+    protected $fillable = ['tajuk', 'huraian', 'tarikh', 'masa', 'lokasi', 'tempoh', 'kumpulan_sasaran', 'max_peserta', 'penganjur', 'telephone' ];
 
     public function user()
     {
@@ -26,9 +26,5 @@ class Event extends Model
       return $this->belongsToMany(Category::class, 'event_categories');
     }
 
-    // public function alreadyevent_categoried(Category $category)
-    // {
-    //   return $category->event_categoried->contains('event_id', $this->id);
-    // }
-
+    
 }

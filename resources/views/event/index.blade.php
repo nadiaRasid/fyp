@@ -4,7 +4,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>Your Events<a href="{{ url('/event/create') }}" class="btn btn-info pull-right" role="button">Create New Event</a></h2>
+    <h2>Senarap Acara <a href="{{ url('/event/create') }}" class="btn btn-info pull-right" role="button">Cipta Acara Baru</a></h2>
   </div>
 
   <div class="panel-body">
@@ -15,10 +15,10 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th width="55%">Event Title</th>
-                <th width="15%">Time</th>
-                <th width="15%">Date</th>
-                <th width="15%">Action</th>
+                <th width="55%">Tajuk</th>
+                <th width="15%">Masa</th>
+                <th width="15%">Tarikh</th>
+                <th width="15%"></th>
               </tr>
             </thead>
             <tbody pull-{right}>
@@ -31,8 +31,8 @@
                 <td>{{ $event->tarikh }}</td>
                 <td>
                   @if( $event->user_id == Auth::user()->id)
-                  <a href="{{ action('EventsController@edit', $event->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                  <a href="{{ action('EventsController@destroy', $event->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Delete</a>
+                  <a href="{{ action('EventsController@edit', $event->id) }}" class="btn btn-primary btn-sm">Kemas</a>
+                  <a href="{{ action('EventsController@destroy', $event->id) }}" class="btn btn-danger btn-sm" id="confirm-modal">Padam</a>
                   @endif
                 </td>
               </tr>

@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>Kemaskini Acara</h2>
+    <h2>Kemaskini Program </h2>
   </div>
   <div class="panel-body">
     <div class="row">
@@ -12,7 +12,7 @@
             {{ method_field('PATCH') }}
 
             <div class="form-group{{ $errors->has('tajuk') ? ' has-error' : '' }}">
-                <label for="tajuk" class="col-md-4 control-label">Tajuk Acara</label>
+                <label for="tajuk" class="col-md-4 control-label">Tajuk Program </label>
 
                 <div class="col-md-6">
                     <input id="tajuk" type="text" class="form-control" name="tajuk" value="{{ $event->tajuk }}" required autofocus>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('huraian') ? ' has-error' : '' }}">
-                <label for="huraian" class="col-md-4 control-label">Huraian Acara</label>
+                <label for="huraian" class="col-md-4 control-label">Perincian Program </label>
 
                 <div class="col-md-6">
                     <textarea id="huraian" class="form-control" name="huraian" rows="6" maxlength="500" required autofocus>{{ $event->huraian }}</textarea>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('tarikh') ? ' has-error' : '' }}">
-                <label for="tarikh" class="col-md-4 control-label">Tarikh Diadakan</label>
+                <label for="tarikh" class="col-md-4 control-label">Tarikh Diadakan </label>
 
                 <div class="col-md-6">
                     <input id="tarikh" type="date" class="form-control" name="tarikh" value="{{ $event->tarikh }}" required autofocus>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('masa') ? ' has-error' : '' }}">
-                <label for="masa" class="col-md-4 control-label">Masa Berlangsung</label>
+                <label for="masa" class="col-md-4 control-label">Masa Berlangsung </label>
 
                 <div class="col-md-6">
                     <input id="masa" type="time" class="form-control" name="masa" value="{{ $event->masa }}" required autofocus>
@@ -68,7 +68,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('lokasi') ? ' has-error' : '' }}">
-                <label for="lokasi" class="col-md-4 control-label">Lokasi Acara</label>
+                <label for="lokasi" class="col-md-4 control-label">Lokasi </label>
 
                 <div class="col-md-6">
                     <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{ $event->lokasi }}" required autofocus>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('tempoh') ? ' has-error' : '' }}">
-                <label for="tempoh" class="col-md-4 control-label">Tempoh Berlangsung</label>
+                <label for="tempoh" class="col-md-4 control-label">Tempoh Berlangsung </label>
 
                 <div class="col-md-6">
                     <input id="tempoh" type="text" class="form-control" name="tempoh" value="{{ $event->tempoh }}" required autofocus>
@@ -96,7 +96,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('kumpulan_sasaran') ? ' has-error' : '' }}">
-                <label for="kumpulan_sasaran" class="col-md-4 control-label">Kumpulan Sasaran</label>
+                <label for="kumpulan_sasaran" class="col-md-4 control-label">Kumpulan Sasaran </label>
 
                 <div class="col-md-6">
                     <input id="kumpulan_sasaran" type="text" class="form-control" name="kumpulan_sasaran" value="{{ $event->kumpulan_sasaran }}" required autofocus>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="form-group{{ $errors->has('max_peserta') ? ' has-error' : '' }}">
-                <label for="max_peserta" class="col-md-4 control-label">Maximum Peserta</label>
+                <label for="max_peserta" class="col-md-4 control-label">Maximum Peserta </label>
 
                 <div class="col-md-6">
                     <input id="max_peserta" type="integer" class="form-control" name="max_peserta" value="{{ $event->max_peserta }}" required autofocus>
@@ -123,8 +123,22 @@
                 </div>
             </div>
 
+            <div class="form-group{{ $errors->has('penganjur') ? ' has-error' : '' }}">
+                <label for="penganjur" class="col-md-4 control-label">Penganjur </label>
+
+                <div class="col-md-6">
+                    <input id="penganjur" type="text" class="form-control" name="penganjur" value="{{ $event->penganjur }}" required autofocus>
+
+                    @if ($errors->has('penganjur'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('penganjur') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
+
             <div class="form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
-                <label for="telephone" class="col-md-4 control-label">Nombor Telefon</label>
+                <label for="telephone" class="col-md-4 control-label">Nombor Telefon </label>
 
                 <div class="col-md-6">
                     <input id="telephone" type="text" class="form-control" name="telephone" value="{{ $event->telephone }}" required autofocus>
@@ -139,8 +153,8 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <a href="{{ action('EventsController@index') }}" class="btn btn-default">Cancel</a>
-                <button type="submit" class="btn btn-success">Save</button>
+                <a href="{{ action('EventsController@index') }}" class="btn btn-default">Batal</a>
+                <button type="submit" class="btn btn-success">Simpan</button>
               </div>
             </div>
           </form>

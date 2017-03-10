@@ -62,7 +62,7 @@ class BeritasController extends Controller
         $berita->user_id = Auth::user()->id;
         $berita->save();
 
-        return redirect()->action('BeritasController@store')->withMessage('News has been successfully added');
+        return redirect()->action('BeritasController@store')->withMessage('Perincian berita telah berjaya dihebahkan.');
 
     }
 
@@ -112,7 +112,7 @@ class BeritasController extends Controller
         $berita->kumpulan_sasaran = $request->kumpulan_sasaran;
         $berita->save();
 
-        return redirect()->action('BeritasController@index')->withMessage('News has been successfully updated');
+        return redirect()->action('BeritasController@index')->withMessage('Perincian berita telah berjaya dikemaskini.');
 
     }
 
@@ -126,7 +126,7 @@ class BeritasController extends Controller
     {
         $berita = Berita::findOrFail($id);
         $berita->delete();
-        return back()->withError('News has been successfully deleted');
+        return back()->withError('Berita telah berjaya dipadam.');
 
     }
 }

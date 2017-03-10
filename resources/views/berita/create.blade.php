@@ -25,7 +25,7 @@
                     </div> -->
 
                     <div class="form-group{{ $errors->has('tajuk') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Tajuk Berita</label>
+                        <label class="col-md-4 control-label">Tajuk Buletin </label>
 
                         <div class="col-md-6">
                             <input id="tajuk" type="text" class="form-control" name="tajuk" value="{{ old('tajuk') }}" placeholder="Masukkan Tajuk Berita" required autofocus>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('huraian') ? ' has-error' : '' }}">
-                        <label for="huraian" class="col-md-4 control-label">Huraian Berita</label>
+                        <label for="huraian" class="col-md-4 control-label">Perincian Hebahan </label>
 
                         <div class="col-md-6">
                             <textarea id="huraian" type="text" class="form-control" name="huraian" value="{{ old('huraian') }}" rows="6" maxlength="500" placeholder="Masukkan Huraian Berita" required autofocus></textarea>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('lokasi') ? ' has-error' : '' }}">
-                        <label for="lokasi" class="col-md-4 control-label">Lokasi Berita</label>
+                        <label for="lokasi" class="col-md-4 control-label">Lokasi </label>
 
                         <div class="col-md-6">
                             <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi Berita" required autofocus>

@@ -3,7 +3,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Perincian Berita</h2>
+        <h2>Perincian Buletin</h2>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-8">
 
-                <h1>{{ $berita->tajuk }}</h1>
+                <h2>{{ $berita->tajuk }}</h2>
                 <p> Published at {{ $berita->created_at }}</p>
                 <p> Lokasi: {{ $berita->lokasi }}</p>
                 <br>

@@ -3,7 +3,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Perincian Acara</h2>
+        <h2>Perincian Program </h2>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -12,13 +12,14 @@
             </div>
             <div class="col-md-8">
 
-                <h1>{{ $event->tajuk }}</h1>
+                <h2>{{ $event->tajuk }}</h2>
                 <br>
                 <p> Tarikh: {{ $event->tarikh }}</p>
                 <p> Masa: {{ $event->masa }}</p>
                 <p> Tempat: {{ $event->lokasi }}</p>
                 <p> Tempoh berlangsung: {{ $event->tempoh }}</p>
                 <p> Maximum peserta: {{ $event->max_peserta }} orang</p>
+                <p> Penganjur Bersama: {{ $event->penganjur }}</p>
                 <p> Sebarang pertanyaan boleh hubungi kami di talian {{ $event->telephone }}.</p>
 
                 <br>

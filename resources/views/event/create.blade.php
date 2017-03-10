@@ -10,22 +10,8 @@
                 <form class="form-horizontal" action="{{ action('EventsController@store') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                    <!-- <div class="form-group{{ $errors->has('jenis_berita') ? ' has-error' : '' }}">
-                        <label for="jenis_berita" class="col-md-4 control-label">Jenis Berita</label>
-
-                        <div class="col-md-6">
-                            <input id="jenis_berita" type="integer" class="form-control" name="jenis_berita" value="{{ old('jenis_berita') }}" required autofocus>
-
-                            @if ($errors->has('jenis_berita'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('jenis_berita') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div> -->
-
                     <div class="form-group{{ $errors->has('tajuk') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Tajuk Acara</label>
+                        <label class="col-md-4 control-label">Tajuk Program </label>
 
                         <div class="col-md-6">
                             <input id="tajuk" type="text" class="form-control" name="tajuk" value="{{ old('tajuk') }}" placeholder="Masukkan Tajuk Acara" required autofocus>
@@ -39,7 +25,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('huraian') ? ' has-error' : '' }}">
-                        <label for="huraian" class="col-md-4 control-label">Huraian Acara</label>
+                        <label for="huraian" class="col-md-4 control-label">Perincian Program </label>
 
                         <div class="col-md-6">
                             <textarea id="huraian" type="text" class="form-control" name="huraian" value="{{ old('huraian') }}" rows="6" maxlength="500" placeholder="Masukkan Huraian Acara" required autofocus></textarea>
@@ -53,7 +39,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('tarikh') ? ' has-error' : '' }}">
-                        <label for="tarikh" class="col-md-4 control-label">Tarikh Diadakan</label>
+                        <label for="tarikh" class="col-md-4 control-label">Tarikh Diadakan </label>
 
                         <div class="col-md-6">
                             <input id="tarikh" type="date" class="form-control" name="tarikh" value="{{ old('tarikh') }}" required autofocus>
@@ -67,7 +53,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('masa') ? ' has-error' : '' }}">
-                        <label for="masa" class="col-md-4 control-label">Masa Berlangsung</label>
+                        <label for="masa" class="col-md-4 control-label">Masa Berlangsung </label>
 
                         <div class="col-md-6">
                             <input id="masa" type="time" class="form-control" name="masa" value="{{ old('masa') }}"  required autofocus>
@@ -81,7 +67,7 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('lokasi') ? ' has-error' : '' }}">
-                        <label for="lokasi" class="col-md-4 control-label">Lokasi Acara</label>
+                        <label for="lokasi" class="col-md-4 control-label">Lokasi </label>
 
                         <div class="col-md-6">
                             <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi Acara" required autofocus>
@@ -146,6 +132,20 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('penganjur') ? ' has-error' : '' }}">
+                        <label for="penganjur" class="col-md-4 control-label">Penganjur </label>
+
+                        <div class="col-md-6">
+                            <input id="penganjur" type="text" class="form-control" name="penganjur" value="{{ old('penganjur') }}" placeholder="Masukkan Penganjur Program"required autofocus>
+
+                            @if ($errors->has('penganjur'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('penganjur') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
                         <label for="telephone" class="col-md-4 control-label">Nombor Telefon </label>
 
@@ -162,8 +162,8 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a href="{{ action('EventsController@index') }}" class="btn btn-default">Cancel</a>
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <a href="{{ action('EventsController@index') }}" class="btn btn-default">Batal</a>
+                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
                 </form>

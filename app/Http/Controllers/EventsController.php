@@ -53,11 +53,10 @@ class EventsController extends Controller
         $this->validate ($request, ['tempoh' => 'required']);
         $this->validate ($request, ['kumpulan_sasaran' => 'required']);
         $this->validate ($request, ['max_peserta' => 'required']);
-        // $this->validate ($request, ['penganjur' => 'required']);
+        $this->validate ($request, ['penganjur' => 'required']);
         $this->validate ($request, ['telephone' => 'required']);
 
         $event = new Event;
-        //$event->jenis_berita = $request->jenis_berita;
         $event->tajuk = $request->tajuk;
         $event->huraian = $request->huraian;
         $event->tarikh = $request->tarikh;
@@ -67,11 +66,12 @@ class EventsController extends Controller
         $event->tempoh = $request->tempoh;
         $event->kumpulan_sasaran = $request->kumpulan_sasaran;
         $event->max_peserta = $request->max_peserta;
+        $event->penganjur = $request->penganjur;
         $event->telephone = $request->telephone;
         $event->user_id = Auth::user()->id;
         $event->save();
 
-        return redirect()->action('EventsController@store')->withMessage('Event has been successfully added');
+        return redirect()->action('EventsController@store')->withMessage('Perincian program telah berjaya dihebahkan.');
 
     }
 
@@ -116,10 +116,10 @@ class EventsController extends Controller
         $this->validate ($request, ['tempoh' => 'required']);
         $this->validate ($request, ['kumpulan_sasaran' => 'required']);
         $this->validate ($request, ['max_peserta' => 'required']);
+        $this->validate ($request, ['penganjur' => 'required']);
         $this->validate ($request, ['telephone' => 'required']);
 
         $event = Event::findOrFail($id);
-        //$event->jenis_berita = $request->jenis_berita;
         $event->tajuk = $request->tajuk;
         $event->huraian = $request->huraian;
         $event->tarikh = $request->tarikh;
@@ -129,11 +129,11 @@ class EventsController extends Controller
         $event->tempoh = $request->tempoh;
         $event->kumpulan_sasaran = $request->kumpulan_sasaran;
         $event->max_peserta = $request->max_peserta;
+        $event->penganjur = $request->penganjur;
         $event->telephone = $request->telephone;
-        // $event->user_id = Auth::user()->id;
         $event->save();
 
-        return redirect()->action('EventsController@index')->withMessage('Event has been successfully updated');
+        return redirect()->action('EventsController@index')->withMessage('Perincian program telah berjaya dikemaskini.');
 
     }
 
@@ -147,6 +147,7 @@ class EventsController extends Controller
     {
         $event = Event::findOrFail($id);
         $event->delete();
-        return back()->withError('Event has been successfully deleted');
+        return back()->withError('Program telah berjaya dipadam.');
     }
+
 }

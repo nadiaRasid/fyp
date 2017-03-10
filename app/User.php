@@ -5,6 +5,8 @@ namespace App;
 use App\Profile;
 use App\Event;
 use App\Berita;
+use App\Pengguna;
+use App\Pengarang;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -43,6 +45,14 @@ class User extends Authenticatable
     public function berita()
     {
         return $this->hasMany(Berita::class);
+    }
+
+    public function pengguna() {
+        return $this->hasOne(Pengguna::class, 'user_id');
+    }
+
+    public function pengarang() {
+        return $this->hasOne(Pengarang::class, 'user_id');
     }
 
 }
