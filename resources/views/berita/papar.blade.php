@@ -4,11 +4,11 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Buletin UKM</h2>
-        <form class="form-inline my-4 my-lg-5" method="get" action="{{ url('papar') }}">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-4 my-lg-5 pull-right" method="get" action="{{ url('papar') }}">
+            <input class="form-control mr-sm-2" type="text" placeholder="Cari" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
         </form>
+        <h2>Buletin UKM</h2>
     </div>
 
     <div class="panel-body">
@@ -34,8 +34,9 @@
                     @endforelse
                     </tbody>
                     </table>
-                    {{ $beritas -> links() }}
-
+                    <div class="text-center">
+                        {{ $beritas->links() }}
+                    </div>
                 </div>
             </div>
         </div>

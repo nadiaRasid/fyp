@@ -57,6 +57,10 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                margin: 0 4px;
+                .center {
+                    text-align: center;
+                }
             }
 
             .m-b-md {

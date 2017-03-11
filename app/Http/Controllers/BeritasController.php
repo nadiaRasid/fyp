@@ -6,6 +6,8 @@ use App\Berita;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class BeritasController extends Controller
 {
@@ -16,17 +18,26 @@ class BeritasController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::with('user')->paginate(10);
+        // $beritas = Berita::with('user')->paginate(10);
+        // return view('berita.index', compact('beritas'));
+
+        $searchResults =Input::get('search');
+        $beritas = Berita::where('tajuk','like','%'.$searchResults.'%')->paginate(5);
         return view('berita.index', compact('beritas'));
+
     }
 
     public function papar()
     {
-        $beritas = Berita::with('user')->paginate(10);
-        return view('berita.papar', compact('beritas'));
+        // $beritas = Berita::with('user')->paginate(10);
+        // return view('berita.papar', compact('beritas'));
 
-        $beritas = Berita::where('tajuk','like','%'.Input::get('search').'%')->get();
-        return view('papar', compact('beritas'));
+        // $beritas = Berita::where('tajuk','like','%'.Input::get('search').'%')->get();
+        // return view('berita.papar', compact('beritas'));
+
+        $searchResults =Input::get('search');
+        $beritas = Berita::where('tajuk','like','%'.$searchResults.'%')->paginate(5);
+        return view('berita.papar', compact('beritas'));
     }
 
     /**

@@ -4,10 +4,16 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>Senarap Acara <a href="{{ url('/event/create') }}" class="btn btn-info pull-right" role="button">Cipta Acara Baru</a></h2>
+
+    <h2>Senarai Acara <a href="{{ url('/event/create') }}" class="btn btn-info pull-right" role="button">Cipta Acara Baru</a></h2>
+
   </div>
 
   <div class="panel-body">
+      <form class="form-inline my-4 my-lg-5 pull-right" method="get" action="{{ url('event') }}">
+          <input class="form-control mr-sm-2" type="text" placeholder="Cari" name="search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cari</button>
+      </form>
     <div class="row">
       <div class="col-md-12">
         <div class="table-responsive">
@@ -44,7 +50,9 @@
               @endforelse
             </tbody>
           </table>
-          {{ $events->links() }}
+          <div class="text-center">
+              {{ $events->links() }}
+          </div>
         </div>
       </div>
     </div>

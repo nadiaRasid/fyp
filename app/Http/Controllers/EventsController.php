@@ -6,7 +6,8 @@ use App\Event;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class EventsController extends Controller
 {
@@ -17,13 +18,25 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::with('user')->paginate(10);
+        // $events = Event::with('user')->paginate(10);
+        // return view('event.index', compact('events'));
+
+        $searchResults =Input::get('search');
+        $events = Event::where('tajuk','like','%'.$searchResults.'%')->paginate(5);
         return view('event.index', compact('events'));
+
     }
 
     public function papar()
     {
-        $events = Event::with('user')->paginate(10);
+        // $events = Event::with('user')->paginate(10);
+        // return view('event.papar', compact('events'));
+
+        // $events = Event::where('tajuk','like','%'.Input::get('search').'%')->get();
+        // return view('event.papar', compact('events'));
+
+        $searchResults =Input::get('search');
+        $events = Event::where('tajuk','like','%'.$searchResults.'%')->paginate(5);
         return view('event.papar', compact('events'));
     }
 

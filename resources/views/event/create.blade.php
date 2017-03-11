@@ -72,16 +72,6 @@
                         <div class="col-md-6">
                             <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{ old('lokasi') }}" placeholder="Masukkan Lokasi Acara" required autofocus>
 
-                            <!-- <select  id="lokasi" name="lokasi" class="form-control" value="{{ old('lokasi') }}">
-                                <option>Pilih Lokasi Acara</option>
-                                <option>FTSM</option>
-                                <option>Kolej ZABA</option>
-                                <option>Masjid UKM</option>
-                                <option>Pusanika</option>
-                                <option>Kolej KKM</option>
-                                <option>Kolej KIY</option>
-                            </select> -->
-
                             @if ($errors->has('lokasi'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('lokasi') }}</strong>
@@ -108,7 +98,17 @@
                         <label for="kumpulan_sasaran" class="col-md-4 control-label">Kumpulan Sasaran </label>
 
                         <div class="col-md-6">
-                            <input id="kumpulan_sasaran" type="text" class="form-control" name="kumpulan_sasaran" value="{{ old('kumpulan_sasaran') }}" placeholder="Masukkan Kumpulan Sasaran" required autofocus>
+                            <!-- <input id="kumpulan_sasaran" type="text" class="form-control" name="kumpulan_sasaran" value="{{ old('kumpulan_sasaran') }}" placeholder="Masukkan Kumpulan Sasaran" required autofocus> -->
+
+                            <select id="kumpulan_sasaran" type="text" class="form-control" name="kumpulan_sasaran" value="{{ old('kumpulan_sasaran') }}" required autofocus>
+                                <<option value="0" disabled selected>Pilih Kumpulan Sasaran</option>
+                                <<option value="Pelajar UKM">Pelajar UKM</option>
+                                <<option value="Staff UKM">Staff UKM</option>
+                                <<option value="Warga UKM">Warga UKM</option>
+                                <<option value="Warga Kolej Zaba">Warga Kolej Zaba</option>
+                                <<option value="Warga FTSM">Warga FTSM</option>
+                                <<option value="Warga KTSN">Warga KTSN</option>
+                            </select>
 
                             @if ($errors->has('kumpulan_sasaran'))
                                 <span class="help-block">
