@@ -81,7 +81,6 @@ class PenggunasController extends Controller
           $user->username = $request->username;
           $user->email = $request->email;
 
-
           $pengguna->nama = $request->nama;
           $pengguna->telefon = $request->telefon;
           $pengguna->fakulti = $request->fakulti;

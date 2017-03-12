@@ -54,16 +54,17 @@
           @endforeach
         </tbody>
       </table>
-      @if( $pengguna->user_id == Auth::user()->id)
-        <a href="{{ action ('PenggunasController@edit',   $pengguna->user_id) }}" class="btn btn-success">Kemaskini Maklumat Diri</a>
-      @endif
+      <div class="text-center">
+        @if( $pengguna->user_id == Auth::user()->id)
+          <a href="{{ action ('PenggunasController@edit',   $pengguna->user_id) }}" class="btn btn-success">Kemaskini Maklumat Diri</a>
+        @endif
+      </div>
     </div>
   </div>
 </div>
-     <div class="panel-footer">
+      <div class="panel-footer">
             <a href="{{ url('home') }}" type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>  Keluar</a>
-
-        </div>
+      </div>
 
       </tbody>
   </table>
