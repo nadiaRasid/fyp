@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Profile;
+use App\Pengguna;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,18 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //$user = User::create();
-        return User::create([
+        $user = User::create([
             'no_matrik' => $data['no_matrik'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
 
-        Profile::create([
-           'user_id' => $user->id,
-        ]);
+        $user->pengguna()->create([
+      'user_id' => $user->id,
+      'nama' => null,
+      'telefon' => null,
+      'fakulti' => null,
+      'persatuan' => null,
+      'gambar' => null,
 
-    //    return $user;
+      //column seterusnya pada profiles table
+        ]);
+       return $user;
     }
 }

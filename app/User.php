@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Profile;
 use App\Event;
 use App\Berita;
 use App\Pengguna;
@@ -32,11 +31,6 @@ class User extends Authenticatable
         'password', 'remember_token', 'created_at', 'updated_at',
     ];
 
-    public function profile()
-    {
-        return $this->hasOne(Profile::class, 'user_id');
-    }
-
     public function event()
     {
         return $this->hasMany(Event::class);
@@ -51,8 +45,8 @@ class User extends Authenticatable
         return $this->hasOne(Pengguna::class, 'user_id');
     }
 
-    public function pengarang() {
-        return $this->hasOne(Pengarang::class, 'user_id');
-    }
+    // public function pengarang() {
+    //     return $this->hasOne(Pengarang::class, 'user_id');
+    // }
 
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Pengguna;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class PenggunasController extends Controller
@@ -13,7 +16,8 @@ class PenggunasController extends Controller
      */
     public function index()
     {
-        //
+        $penggunas = Pengguna::where('user_id',Auth::user()->id)->get();
+        return view ('profile.profile', compact('penggunas'));
     }
 
     /**
@@ -56,7 +60,8 @@ class PenggunasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pengguna = Pengguna::findOrFail($id);
+        return view('profile.edit', compact('pengguna'));
     }
 
     /**
@@ -68,7 +73,26 @@ class PenggunasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd(User::first());
+        $user = User::findOrFail($id);
+        $pengguna = Pengguna::where('user_id', $id)->first();
+
+          $user->no_matrik = $request->no_matrik;
+          $user->username = $request->username;
+          $user->email = $request->email;
+
+
+          $pengguna->nama = $request->nama;
+          $pengguna->telefon = $request->telefon;
+          $pengguna->fakulti = $request->fakulti;
+          $pengguna->persatuan = $request->persatuan;
+          $pengguna->gambar = $request->gambar;
+
+          $user->save();
+          $pengguna->save();
+                  
+        return redirect()->action('PenggunasController@index')->withMessage('Profil anda telah berjaya dikemaskini!');
+
     }
 
     /**

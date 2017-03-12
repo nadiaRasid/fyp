@@ -19,9 +19,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
 
     //profile
-    Route::get('/profile', 'ProfilesController@index');
-    Route::get('/profile/{profile}/edit', 'ProfilesController@edit');
-    Route::patch('/profile/{profile}', 'ProfilesController@update');
+    // Route::get('/profile', 'PenggunasController@index');
+    Route::resource('/profile', 'PenggunasController');
+
 
     //event
     Route::get('/event', 'EventsController@index');

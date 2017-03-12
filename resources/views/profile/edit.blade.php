@@ -1,91 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Edit Profile</div>
 
-                <div class="panel-body">
-                    <form lass="form-horizontal" action="{{ action('ProfilesController@update', $profile->user_id) }}" method="POST" enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        {{ method_field('PATCH') }}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1">Kemaskini Profil</a></li>
+                </ul>
+                <div class="tab-content">
 
-                        <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }}">
-                                <label for="full_name" class="col-md-2 control-label">Full Name</label>
+                  <!-- Start of first tab -->
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
 
-                                <div class="col-md-6">
-                                    <input type="text" name="full_name" value="{{ $profile->full_name}}" class="form-control" required>
+                            <form class="form-horizontal" action="{{ action ('PenggunasController@update' , $pengguna->id) }}" method="POST" enctype="multipart/form-data">
 
-                                    @if ($errors->has('full_name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('full_name') }}</strong>
-                                        </span>
-                                    @endif
+                              {{ csrf_field() }}
+                              {{ method_field('PATCH') }}
+
+                                <div class="form-group"><label class="col-sm-2 control-label">Matrik No:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="no_matrik" placeholder="" value="{{ old('no_matrik', $pengguna->user->no_matrik) }}"></input>
+                                    </div>
                                 </div>
-                        </div>
 
-                        <div class="form-group">
-                                <label for="telephone_no" class="col-md-2 control-label">Telephone Number</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" name="telephone_no" value="{{ $profile->telephone_no }}" class="form-control" required>
-
-                                    @if ($errors->has('telephone_no'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('telephone_no') }}</strong>
-                                        </span>
-                                    @endif
+                                <div class="form-group"><label class="col-sm-2 control-label">Username:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="username" placeholder="Username" value="{{ old('username', $pengguna->user->username) }}"></input>
+                                    </div>
                                 </div>
-                        </div>
 
-                        <div class="form-group">
-                                <label for="jawatan" class="col-md-2 control-label">Jawatan</label>
-                                <!-- <input type="text" name="jawatan" value="{{ $info->jawatan}}" class="form-control" required> -->
-
-                                <div class="col-md-6">
-                                    <select class="form-control" name="jawatan" value="{{ $profile->jawatan}}" required>
-                                        <option>Dekan</option>
-                                        <option>Timbalan Dekan</option>
-                                        <option>Pensyarah</option>
-                                        <option>Felo</option>
-                                    </select>
-
-                                    @if ($errors->has('jawatan'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('jawatan') }}</strong>
-                                        </span>
-                                    @endif
+                                 <div class="form-group"><label class="col-sm-2 control-label">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="email" placeholder="" value="{{ old('email', $pengguna->user->email) }}"></input>
+                                    </div>
                                 </div>
-                        </div>
 
-                        <div class="form-group">
-                                <label for="jabatan" class="col-md-2 control-label">Jabatan</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" name="jabatan" value="{{ $profile->jabatan}}" class="form-control" required>
-
-                                    @if ($errors->has('jabatan'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('jabatan') }}</strong>
-                                        </span>
-                                    @endif
+                                <div class="form-group"><label class="col-sm-2 control-label">Nama Penuh:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="nama" placeholder="Nama Penuh" value="{{ $pengguna->user->nama }}"></input>
+                                    </div>
                                 </div>
-                        </div>
 
-                        <div class="form-group">
-                              <div class="col-sm-offset-2 col-sm-10">
-                                  <a href="{{ action('ProfilesController@index') }}" class="btn btn-default">Cancel</a>
-                                    <button class="btn btn-primary" type="submit">
-                                          Save your information
-                                    </button>
-                              </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Telefon:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="telefon" value="{{ $pengguna->telefon }}"></input>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"><label class="col-sm-2 control-label">Fakulti:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="fakulti" placeholder="Fakulti" value="{{ $pengguna->fakulti }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group"><label class="col-sm-2 control-label">Persatuan:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="persatuan" placeholder="Persatuan" value="{{ $pengguna->persatuan }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group"><label class="col-sm-2 control-label">Gambar Profil:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="gambar" placeholder="" value="{{ $pengguna->gambar }}"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-primary">Hantar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
                         </div>
-                    </form>
+                    </div>
+                    <!-- End of first tab -->
+
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+              </div>
 @endsection

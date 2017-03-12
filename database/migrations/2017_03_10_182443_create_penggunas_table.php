@@ -14,12 +14,17 @@ class CreatePenggunasTable extends Migration
     public function up()
     {
         Schema::create('penggunas', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->string('nama');
-            $table->string('telefon');
-            $table->string('fakulti');
-            $table->string('persatuan');
+            $table->increments('id');
+            $table->integer('user_id')->index()->unsigned();
+            $table->string('nama')->nullable();
+            $table->string('telefon')->nullable();
+            $table->string('fakulti')->nullable();
+            $table->string('persatuan')->nullable();
+            $table->string('gambar')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
