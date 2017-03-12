@@ -18,10 +18,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
 
-    //profile
-    // Route::get('/profile', 'PenggunasController@index');
+    //profile pengguna
     Route::resource('/profile', 'PenggunasController');
-
 
     //event
     Route::get('/event', 'EventsController@index');
@@ -48,10 +46,6 @@ Route::group(['middleware' => ['auth']], function() {
     //Paparan Acara
     Route::get('/acara', 'EventsController@papar');
     Route::get('/acara/{event}', 'EventsController@show');
-
-    //search
-    // Route::get('/search', 'SearchController@index');
-    // Route::get('/search/find', 'SearchController@find');
 
 });
 

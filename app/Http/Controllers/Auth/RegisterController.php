@@ -72,15 +72,14 @@ class RegisterController extends Controller
         ]);
 
         $user->pengguna()->create([
-      'user_id' => $user->id,
-      'nama' => null,
-      'telefon' => null,
-      'fakulti' => null,
-      'persatuan' => null,
-      'gambar' => null,
-
-      //column seterusnya pada profiles table
+          'user_id' => $user->id,
+          'nama' => null,
+          'telefon' => null,
+          'fakulti' => null,
+          'persatuan' => null,
+          'gambar' => null,
         ]);
+        
        return $user;
     }
 }
