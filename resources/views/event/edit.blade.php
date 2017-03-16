@@ -11,6 +11,22 @@
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
 
+            <div class="form-group">
+                <label class="col-md-4 control-label">Nombor Matrik: </label>
+
+                <div class="col-md-6">
+                    <td>{{Auth::user()->no_matrik}}</td>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Nama: </label>
+
+                <div class="col-md-6">
+                    <td>{{Auth::user()->username}}</td>
+                </div>
+            </div>
+
             <div class="form-group{{ $errors->has('tajuk') ? ' has-error' : '' }}">
                 <label for="tajuk" class="col-md-4 control-label">Tajuk Program </label>
 
